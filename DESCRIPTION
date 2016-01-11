@@ -1,11 +1,11 @@
-Package: rExasol
+Package: rexasol
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Exasol ODBC package
 Version: 0.1
 Date: 2016-01-08
-Author: Who wrote it
-Maintainer: Who to complain to <yourfault@somewhere.net>
+Author: Thomas Reinholdsson
+Maintainer: Thomas Reinholdsson <reinholdsson@gmail.com>
 Depends: infuser, RODBC
-Description: More about what it does (maybe more than one line)
+Description: Simplified access to Exasol through ODBC
 License: What license is it under?
 LazyData: TRUE
