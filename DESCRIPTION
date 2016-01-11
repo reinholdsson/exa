@@ -5,7 +5,7 @@ Version: 0.1
 Date: 2016-01-08
 Author: Thomas Reinholdsson
 Maintainer: Thomas Reinholdsson <reinholdsson@gmail.com>
-Depends: infuser, RODBC
+Depends: data.table, infuser, RODBC
 Description: Simplified access to Exasol through ODBC
 License: What license is it under?
 LazyData: TRUE

@@ -23,7 +23,6 @@ exasol <- function(user = 'sys', password = 'exasol', host = 'localhost', port =
 query <- function(conn, sql, ...) {
   dots <- list(...)
   q <- if (length(dots) == 0) infuse(sql, NULL) else infuse(sql, ...)
-  sqlQuery(conn, q)
+  res <- sqlQuery(conn, q)
+  data.table(res)
 }
-
-
