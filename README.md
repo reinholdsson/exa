@@ -1,0 +1,3 @@
+# rexasol
+
+TESTING / WORK IN PROGRESS
