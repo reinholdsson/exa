@@ -3,8 +3,10 @@
 #' ...
 #'
 #' @export
-exasol <- function(user = 'sys', password = 'exasol', host = 'localhost', port = 8563L, schema = 'public', ...) {
+jdbc_exasol <- function(host, port = 8563L, user = 'sys', password = 'exasol', schema = 'public', ...) {
   args <- as.list(environment())
+
+  if (missing(host)) stop("No host specified. Please provide a valid IP or URL.")
 
   options(java.parameters = '-Xmx2g')
 
@@ -14,8 +16,10 @@ exasol <- function(user = 'sys', password = 'exasol', host = 'localhost', port =
 
   jdbcDriver <- JDBC(
     driverClass = 'com.exasol.jdbc.EXADriver',
-    classPath = file.path(system.file(package = packageName()), 'jdbc/EXASolution_JDBC-5.0.14/exajdbc.jar')
+    classPath = file.path(system.file(package = packageName()), 'jdbc/EXASolution_JDBC-5.0.14/exajdbc.jar'),
+    identifier.quote="\""
   )
+
   jdbcConnection <- dbConnect(
     jdbcDriver,
     infuse("jdbc:exa:{{host}}:{{port}};schema={{schema}};user={{user}};password={{password}}", args)
