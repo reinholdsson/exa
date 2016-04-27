@@ -3,26 +3,31 @@
 #' ...
 #'
 #' @export
-exasol <- function(user = 'sys', password = 'exasol', host = 'localhost', port = 8563L, ...) {
+exasol <- function(user = 'sys', password = 'exasol', host = 'localhost', port = 8563L, schema = 'public', ...) {
   args <- as.list(environment())
 
-  # ODBC Driver
-  args$driver <- file.path(
-    system.file(package = packageName()),
-    switch(
-      Sys.info()['sysname'],
-      'Darwin' = 'odbc/lib/darwin/x86_64/libexaodbc-io418sys.dylib'  # Mac OS
-    )
+  options(java.parameters = '-Xmx2g')
+
+  # Output Java version
+  .jinit()
+  print(.jcall("java/lang/System", "S", "getProperty", "java.version"))
+
+  jdbcDriver <- JDBC(
+    driverClass = 'com.exasol.jdbc.EXADriver',
+    classPath = file.path(system.file(package = packageName()), 'jdbc/EXASolution_JDBC-5.0.14/exajdbc.jar')
+  )
+  jdbcConnection <- dbConnect(
+    jdbcDriver,
+    infuse("jdbc:exa:{{host}}:{{port}};schema={{schema}};user={{user}};password={{password}}", args)
   )
 
-  conn_string <- infuse('Driver={{driver}};UID={{user}};PWD={{password}};EXAHOST={{host}}:{{port}}', args)
-  odbcDriverConnect(conn_string, ...)
+  return(jdbcConnection)
 }
 
-#' @export
-query <- function(conn, sql, ...) {
-  dots <- list(...)
-  q <- if (length(dots) == 0) infuse(sql, NULL) else infuse(sql, ...)
-  res <- sqlQuery(conn, q)
-  data.table(res)
-}
+# #' @export
+# query <- function(conn, sql, ...) {
+#   dots <- list(...)
+#   q <- if (length(dots) == 0) infuse(sql, NULL) else infuse(sql, ...)
+#   res <- sqlQuery(conn, q)
+#   data.table(res)
+# }
