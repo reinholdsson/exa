@@ -3,7 +3,7 @@
 #' ...
 #'
 #' @export
-exasol <- function(user = 'sys', password = 'exasol', host = 'localhost', port = 8563L, ...) {
+exasol_odbc <- function(user = 'sys', password = 'exasol', host = 'localhost', port = 8563L, ...) {
   args <- as.list(environment())
 
   # ODBC Driver
