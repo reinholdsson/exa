@@ -1,11 +1,11 @@
-Package: rexasol
+Package: exa
 Type: Package
-Title: Exasol JDBC package
+Title: Access Exasol DB through JDBC or ODBC
 Version: 0.1
 Date: 2016-04-27
 Author: Thomas Reinholdsson
 Maintainer: Thomas Reinholdsson <reinholdsson@gmail.com>
-Depends: exasol, infuser, RJDBC, rJava, dplyr
-Description: Simplified access to Exasol through JDBC
+Depends: infuser, data.table
+Description: Simplified access to Exasol through JDBC/ODBC
 License: What license is it under?
 LazyData: TRUE
