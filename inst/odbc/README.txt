@@ -1,6 +1,6 @@
 EXASolution ODBC
 
-Copyright (c) 2004-2015 EXASOL AG. All rights reserved.
+Copyright (c) 2004-2016 EXASOL AG. All rights reserved.
 
 ==============================================================================
 

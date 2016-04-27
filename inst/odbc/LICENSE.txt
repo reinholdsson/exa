@@ -26,8 +26,9 @@ forth herein, EXASOL grants to Licensee a royalty-free, non-exclusive,
 non-transferable, not sub licensable license to use the Software.
 
 2.2 The Software shall not be sold, rented, subleased or otherwise distributed
-in tangible or intangible form. The use by and for third parties (e.g.,
-by outsourcing, application service providing) is not permitted.
+in tangible or intangible form without EXASOL's consent. The use by and for
+third parties (e.g., by outsourcing, application service providing) is not
+permitted without EXASOL's consent.
 
 2.3 Without EXASOL's consent, Licensee is not permitted to change, edit
 or copy the provided Software to an extent that is not in accordance with
