@@ -10,8 +10,8 @@ Another approach is to first add a connection object to `.Rprofile`, e.g. `.exa 
 
 And then use the connection directly in rmarkdown (knitr engine):
 
-  ```{sql, connection = .exa}
-  select 1
-  ```
+    ```{sql, connection = .exa}
+    select 1
+    ```
 
 See also http://rmarkdown.rstudio.com/authoring_knitr_engines.html
