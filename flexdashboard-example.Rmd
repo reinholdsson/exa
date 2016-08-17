@@ -1,0 +1,42 @@
+---
+title: "Flex Dashboard Example"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+```
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Regions
+
+```{sql, connection = .exa}
+select * from regions
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Pay 1
+
+```{sql, connection = .exa, output.var = 'pay_data'}
+select final_pay_type, count(*) as n from ad_events_in_progress where final_pay_type is not null group by 1
+```
+
+```{r}
+require(ggplot2)
+ggplot(pay_data, aes(FINAL_PAY_TYPE, N, fill = N)) + geom_bar(stat = 'identity') + coord_flip()
+```
+
+### Pay 2
+
+```{r}
+require(highcharter)
+hchart(pay_data, "treemap", x = FINAL_PAY_TYPE, value = N, color = N)
+```
+
