@@ -1,3 +1,7 @@
+**Install**
+
+    devtools::install_github('reinholdsson/exa')
+
 **How to use**
 
 First, put exasol connection parameters in `~/.exa`, e.g.
