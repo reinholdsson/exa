@@ -1,17 +1,17 @@
+**How to use**
 
-Example in R:
+First, put parameters, e.g. host, password, in `~/.exa` (yaml format), e.g.
+
+    host: localhost:8563
+    user: sys
+    password: some_password
+    schema: public
+
+Then run:
 
     library(exa)
-    db <- jdbc(host = 'localhost:8563', user = 'sys', schema = 'public', password = '****')
+    db <- jdbc()  
     query(db, 'select 1')
-    query(db, "select '{{label}}'", label = 'hej')  # see also https://github.com/Bart6114/infuser
+    query(db, "select '{{label}}'", label = 'hej')  # see infuser package
     
-Another approach is to first add a connection object to `.Rprofile`, e.g. `.exa <- exa::jdbc(...)`.
-
-And then use the connection directly in rmarkdown (knitr engine):
-
-    ```{sql, connection = .exa}
-    select 1
-    ```
-
-See also http://rmarkdown.rstudio.com/authoring_knitr_engines.html
+See also examples provided in `/examples`, on how to use exa connection with rmarkdown and knitr engines.
