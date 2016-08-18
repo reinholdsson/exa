@@ -1,6 +1,6 @@
 **How to use**
 
-First, put parameters, e.g. host, password, in `~/.exa` (yaml format), e.g.
+First, put connection parameters in `~/.exa` (yaml format), e.g.
 
     host: localhost:8563
     user: sys
