@@ -14,4 +14,4 @@ Then in R, run:
     query(db, 'select 1')
     query(db, "select '{{label}}'", label = 'hej')  # see infuser package
     
-See also examples provided in `/examples`, on how to use exa connection with rmarkdown and knitr engines.
+See also examples provided in `/examples`, on how to use this package with rmarkdown and knitr engines.
