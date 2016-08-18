@@ -2,7 +2,11 @@
 title: "R Notebook"
 ---
 
-```{sql, connection = .exa}
+```{r, include = F}
+db <- exa::jdbc()
+```
+
+```{sql, connection = db}
 select * from regions limit 10
 ```
 
@@ -10,11 +14,11 @@ select * from regions limit 10
 region <- 10
 ```
 
-```{sql, connection = .exa, max.print = 3, tab.cap = 'Some Car Colors'}
+```{sql, connection = db, max.print = 3, tab.cap = 'Some Car Colors'}
 select * from regions where region > ?region order by 1 desc
 ```
 
-```{sql, connection = .exa, output.var = 'car_colors'}
+```{sql, connection = db, output.var = 'car_colors'}
 select * from regions
 ```
 

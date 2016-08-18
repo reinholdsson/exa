@@ -6,8 +6,9 @@ output:
     vertical_layout: fill
 ---
 
-```{r setup, include=FALSE}
+```{r setup, include = F}
 library(flexdashboard)
+db <- exa::jdbc()  # put parameters in ~/.exa
 ```
 
 Column {data-width=650}
@@ -15,7 +16,7 @@ Column {data-width=650}
 
 ### Regions
 
-```{sql, connection = .exa}
+```{sql, connection = db}
 select * from regions
 ```
 
@@ -24,7 +25,7 @@ Column {data-width=350}
 
 ### Pay 1
 
-```{sql, connection = .exa, output.var = 'pay_data'}
+```{sql, connection = db, output.var = 'pay_data'}
 select final_pay_type, count(*) as n from ad_events_in_progress where final_pay_type is not null group by 1
 ```
 
