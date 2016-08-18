@@ -1,13 +1,13 @@
 **How to use**
 
-First, put connection parameters in `~/.exa` (yaml format), e.g.
+First, put exasol connection parameters in `~/.exa`, e.g.
 
     host: localhost:8563
     user: sys
     password: some_password
     schema: public
 
-Then run:
+Then in R, run:
 
     library(exa)
     db <- jdbc()  
