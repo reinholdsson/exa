@@ -3,7 +3,8 @@ title: "R Notebook"
 ---
 
 ```{r, include = F}
-db <- exa::jdbc()
+library(exa)
+db <- exa_jdbc()
 ```
 
 ```{sql, connection = db}

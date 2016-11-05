@@ -8,7 +8,7 @@ output:
 knitr::opts_chunk$set(echo=TRUE)
 
 library(exa)
-db <- jdbc()
+db <- exa_jdbc()
 ```
 
 ## SQL

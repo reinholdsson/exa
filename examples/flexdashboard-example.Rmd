@@ -7,8 +7,9 @@ output:
 ---
 
 ```{r setup, include = F}
+library(exa)
 library(flexdashboard)
-db <- exa::jdbc()  # put parameters in ~/.exa
+db <- exa_jdbc()  # put parameters in ~/.exa
 ```
 
 Column {data-width=650}
