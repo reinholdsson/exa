@@ -5,6 +5,7 @@
 
 	# Set options
 	options(java.parameters = '-Xmx2g')
+	options(exa.connection_file = file.path(path.expand('~'), '.exa'))
 
 	# Java info
   .jinit()

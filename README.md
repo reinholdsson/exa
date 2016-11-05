@@ -14,8 +14,8 @@ First, put exasol connection parameters in `~/.exa`, e.g.
 Then in R, run:
 
     library(exa)
-    db <- jdbc()  
-    query(db, 'select 1')
-    query(db, "select '{{label}}'", label = 'hej')  # see infuser package
+    db <- exa_jdbc()  
+    exa_query(db, 'select 1')
+    exa_query(db, "select '{{label}}'", label = 'hej')  # see infuser package
     
 See also examples provided in `/examples`, on how to use this package with rmarkdown and knitr engines.
